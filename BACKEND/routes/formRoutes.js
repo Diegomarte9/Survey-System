@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Form = require('../models/Form');
 
-// Crear un nuevo formulario
 router.post('/forms', async (req, res) => {
   try {
     const form = new Form(req.body);
@@ -13,7 +12,6 @@ router.post('/forms', async (req, res) => {
   }
 });
 
-// Obtener todos los formularios
 router.get('/forms', async (req, res) => {
   try {
     const forms = await Form.find();

@@ -52,7 +52,7 @@ textarea {
 
 textarea {
     resize: vertical;
-    height: 80px; /* Altura fija para textarea */
+    height: 80px;
 }
 
 button {
@@ -89,6 +89,6 @@ button:hover {
 }
 
 .btn-enviar {
-    display: block; /* Para centrar el botón */
-    margin: 20px auto 0; /* Espaciado superior y centrado */
+    display: block;
+    margin: 20px auto 0;
 }
