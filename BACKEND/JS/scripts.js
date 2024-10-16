@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const preguntasContainer = document.getElementById('preguntasContainer');
     const agregarPreguntaBtn = document.getElementById('agregarPreguntaBtn');
 
-    // Función para agregar una nueva pregunta
     function agregarPregunta() {
         const preguntaDiv = document.createElement('div');
         preguntaDiv.classList.add('pregunta');
@@ -29,32 +28,27 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         preguntasContainer.appendChild(preguntaDiv);
 
-        // Agregar manejador para el botón "Agregar otra opción"
         const agregarOpcionBtn = preguntaDiv.querySelector('.agregarOpcionBtn');
         agregarOpcionBtn.addEventListener('click', function() {
             agregarOpcion(preguntaDiv);
         });
 
-        // Agregar manejador para el botón "Eliminar pregunta"
         const eliminarPreguntaBtn = preguntaDiv.querySelector('.eliminarPreguntaBtn');
         eliminarPreguntaBtn.addEventListener('click', function() {
             preguntasContainer.removeChild(preguntaDiv);
         });
     }
 
-    // Función para agregar una nueva opción a la pregunta
     function agregarOpcion(preguntaDiv) {
         const opcionesDiv = preguntaDiv.querySelector('.opciones');
         const nuevaOpcion = document.createElement('input');
         nuevaOpcion.type = 'text';
         nuevaOpcion.placeholder = `Opción ${opcionesDiv.children.length + 1}`;
         
-        // Crear un botón para eliminar la opción
         const eliminarOpcionBtn = document.createElement('button');
         eliminarOpcionBtn.type = 'button';
         eliminarOpcionBtn.textContent = 'Eliminar opción';
         
-        // Añadir evento para eliminar la opción
         eliminarOpcionBtn.addEventListener('click', function() {
             opcionesDiv.removeChild(nuevaOpcion);
             opcionesDiv.removeChild(eliminarOpcionBtn);
@@ -64,16 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
         opcionesDiv.appendChild(eliminarOpcionBtn);
     }
 
-    // Mostrar opciones si se selecciona "Opción múltiple"
     window.mostrarOpciones = function(selectElement) {
         const opcionesDiv = selectElement.parentElement.querySelector('.opciones');
         opcionesDiv.style.display = selectElement.value === 'multiple' ? 'block' : 'none';
     };
 
-    // Maneja el evento de clic en el botón de agregar pregunta
     agregarPreguntaBtn.addEventListener('click', agregarPregunta);
 
-    // Maneja el envío del formulario
     formularioEncuesta.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -108,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 alert('Encuesta guardada correctamente');
                 formularioEncuesta.reset();
-                preguntasContainer.innerHTML = ''; // Limpia las preguntas
+                preguntasContainer.innerHTML = '';
             } else {
                 alert('Error al guardar la encuesta');
             }
