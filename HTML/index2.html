@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Encuesta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Encuesta</h1>
+        <p>Complete los siguientes campos para crear su encuesta.</p>
+        
+        <form id="formularioEncuesta">
+            <div class="form-group">
+                <label for="titulo">Título de la encuesta:</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título de la encuesta" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" placeholder="Ingrese una descripción"></textarea>
+            </div>
+
+            <div id="preguntasContainer">
+                <h3>Preguntas:</h3>
+                <div class="pregunta">
+                    <label>Pregunta:</label>
+                    <input type="text" placeholder="Ingrese la pregunta" required>
+                    <label>Tipo de respuesta:</label>
+                    <select>
+                        <option value="texto">Texto corto</option>
+                        <option value="parrafo">Parrafo largo</option>
+                        <option value="multiple">Opción múltiple</option>
+                        <option value="checkbox">Casillas de verificación</option>
+                        <option value="calificacion">Calificación</option>
+                        <option value="fecha">Fecha</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" id="agregarPreguntaBtn">Agregar Otra Pregunta</button>
+            <button type="submit" class="btn-enviar">Enviar Encuesta</button>
+        </form>
+    </div>
+    <script src="../JS/scripts.js"></script>
+</body>
+</html>
